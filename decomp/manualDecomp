@@ -1,0 +1,11 @@
+!#/bin/bash
+
+grep -oP '<.*>:' libExporter.asm >> libExporterFunctions.txt
+
+objdump -M intel -d libExporter.so >> libExporter.asm
+
+ls | wc -l (get non-hidden entries --files and folders alike)
+
+candidate = ls()
+
+for i in 
