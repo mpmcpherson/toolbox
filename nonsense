@@ -1,0 +1,7 @@
+function getTemperatureSummary(date: Date, city: string): TemperatureSummary {
+    
+}
+
+function processReadings(readings: TemperatureReading[]): void {
+    
+}
