@@ -1,8 +1,8 @@
-import re
+from SublimeLinter.lint import Linter
 
 
-class PHPLint():
-    cmd = 'phplint --print-path relative --print-column-number --no-overall ${args} ${file}'
+class PHPLint(Linter):
+    cmd = 'phpl --print-path relative --print-column-number --no-overall ${args} ${file}'
     regex = (
         r'(?i)^(?:'
         r'\t.*?\r?\n)?'
