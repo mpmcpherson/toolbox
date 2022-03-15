@@ -1,0 +1,13 @@
+oldmachine$ sudo dpkg --get-selections > installedsoftware
+newmachine$ sudo dpkg --set-selections < installedsoftware
+newmachine$ sudo apt-get --show-upgraded dselect-upgrade
+
+
+....and home folders
+
+rsync -a /home/you/ you@otherhost:
+
+-a preserves modified times, permissions, etc
+
+trailing slash matter, obv
+

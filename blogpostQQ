@@ -1,0 +1,18 @@
+In database-like things, there's what we call 'the concurrency problem' because mathemeticians are pompous.
+
+It's where there's a database (a pile of crap on the table) and there is more than one program (some asshole) is pulling items from the pile. 
+
+If they both go for the *same* item in real life, there's an argument or fight or whatever. With computers there are two options for what can happen. Either one of them actually gets the thing, and one of them only *thinks* they do, OR they both get the thing, and when one changes it, *the other guy's thing changes too.* This is bad.
+
+There are a bunch of strategies for keeping either of those things for happening, but the most basic one is called "locking". And it's just like calling dibs on a thing. Sort of. 
+
+The issue we're having here is that our program is calling dibs, and then taking A Long Time to do anything about it (because it's doing stuff). It's taking so long that other programs are basically saying "fuck it, your dibs are expired. I'm taking it now!"
+
+That breaks things.
+
+And so I found the correct way to tell Microsoft Cloud Shit "no my dibs are still good; hold it for another few minutes"
+
+And the architect is telling me that it's wrong.
+
+For, as far as I can tell "rEaSoNs"
+
