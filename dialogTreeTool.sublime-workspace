@@ -1,0 +1,746 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"getElement",
+				"getElementsStartsWithId"
+			],
+			[
+				"getele",
+				"getElementById〔function〕"
+			],
+			[
+				"overfl",
+				"overflow-x\tproperty"
+			],
+			[
+				"border",
+				"border-width\tproperty"
+			],
+			[
+				"PASSWORD",
+				"PASSWORD_DEFAULT〔constant〕"
+			],
+			[
+				"error",
+				"error_log〔function〕"
+			],
+			[
+				"session",
+				"sessionID"
+			],
+			[
+				"addev",
+				"addEventListener"
+			],
+			[
+				"signup",
+				"signup_btn"
+			],
+			[
+				"login",
+				"login_btn〔variable〕"
+			],
+			[
+				"modal",
+				"modal-content"
+			],
+			[
+				"peop",
+				"peopleList"
+			],
+			[
+				"arra",
+				"array_of_people"
+			],
+			[
+				"max",
+				"max-height\tproperty"
+			],
+			[
+				"array_",
+				"array_of_events"
+			],
+			[
+				"loadeven",
+				"loadAllEvents"
+			],
+			[
+				"targe",
+				"targetObject"
+			],
+			[
+				"EventL",
+				"EventListing"
+			],
+			[
+				"per",
+				"personid"
+			],
+			[
+				"chan",
+				"channelValue〔variable〕"
+			],
+			[
+				"cha",
+				"channelName〔variable〕"
+			],
+			[
+				"inter",
+				"intervalType〔variable〕"
+			],
+			[
+				"keyp",
+				"keypressListener"
+			],
+			[
+				"visib",
+				"visibility: 〔property〕"
+			],
+			[
+				"event",
+				"eventBtn"
+			],
+			[
+				"title",
+				"titleBorder"
+			],
+			[
+				"array_of",
+				"array_of_people"
+			],
+			[
+				"tar",
+				"targetDiv〔variable〕"
+			],
+			[
+				"chanee",
+				"channelValue"
+			],
+			[
+				"int",
+				"intervalTime"
+			],
+			[
+				"target",
+				"targetDiv"
+			],
+			[
+				"chann",
+				"channelName"
+			],
+			[
+				"person",
+				"$personId〔variable〕"
+			],
+			[
+				"last",
+				"last_name"
+			],
+			[
+				"align",
+				"text-align\tproperty"
+			],
+			[
+				"var",
+				"var_dump〔function〕"
+			],
+			[
+				"viewpo",
+				"$viewportTitle〔variable〕"
+			],
+			[
+				"req",
+				"require_once"
+			],
+			[
+				"restb",
+				"restBaseClass"
+			],
+			[
+				"html",
+				"htmlspecialchars"
+			],
+			[
+				"http_parse",
+				"http_parse_headers"
+			],
+			[
+				"response",
+				"responseBody"
+			],
+			[
+				"respon",
+				"responseBody"
+			],
+			[
+				"new",
+				"newConn"
+			],
+			[
+				"abstr",
+				"abstractPrint"
+			],
+			[
+				"get_class",
+				"get_class_methods"
+			],
+			[
+				"get_def",
+				"get_defined_functions"
+			],
+			[
+				"dbR",
+				"dbRevVal"
+			],
+			[
+				"errorM",
+				"errorMessage"
+			],
+			[
+				"revi",
+				"revisionStatus"
+			],
+			[
+				"file",
+				"file_get_contents"
+			],
+			[
+				"htmlspec",
+				"htmlspecialchars_decode"
+			],
+			[
+				"serializ",
+				"v8.serialize"
+			],
+			[
+				"set",
+				"setTimeout"
+			],
+			[
+				"tinymc",
+				"tinymce"
+			],
+			[
+				"enco",
+				"encodeText"
+			],
+			[
+				"bl",
+				"inline-block\tdisplay"
+			],
+			[
+				"inline",
+				"inline-block\tdisplay"
+			],
+			[
+				"thee",
+				"theEnd"
+			],
+			[
+				"htmlsp",
+				"htmlspecialchars_decode"
+			],
+			[
+				"htmlspe",
+				"htmlspecialchars"
+			],
+			[
+				"back",
+				"background-color\tproperty"
+			],
+			[
+				"pritn",
+				"print_r"
+			],
+			[
+				"recurs",
+				"recurseList\tstatement"
+			],
+			[
+				"obj",
+				"objName\tparam"
+			],
+			[
+				"ob",
+				"objName\tparam"
+			],
+			[
+				"filea",
+				"fileAryElem"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"rename",
+				"Rename File"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format JSON Lines"
+			],
+			[
+				"html",
+				"HTMLBeautify"
+			],
+			[
+				"insta\t",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"format",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"isntall",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"isnta\t",
+				"Package Control: Install Package"
+			],
+			[
+				"package control",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"build",
+				"Build: New Build System"
+			],
+			[
+				"pacak",
+				"Package Control: Remove Package"
+			],
+			[
+				"LSP: disable",
+				"LSP: Disable Language Server Globally"
+			],
+			[
+				"LSP",
+				"LSP: Restart Servers"
+			],
+			[
+				"packagr",
+				"Package Control: Remove Package"
+			],
+			[
+				"LSP: Enable",
+				"LSP: Enable Language Server Globally"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"LSP: enable\t",
+				"LSP: Enable Language Server Globally"
+			],
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
+			[
+				"package in\t",
+				"Package Control: Install Package"
+			],
+			[
+				"fotmat",
+				"Pretty JSON: Format and Sort JSON"
+			],
+			[
+				"indnet",
+				"Indent XML"
+			],
+			[
+				"Package Control: list",
+				"Package Control: List Packages"
+			],
+			[
+				"package control insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package control list",
+				"Package Control: List Packages"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"package control: remove\t",
+				"Package Control: Remove Package"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				" package control: ",
+				"Package Control: Disable Package"
+			],
+			[
+				"package control: advanced",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"package control: list",
+				"Package Control: List Packages"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"p",
+				"Package Control: Add Repository"
+			],
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
+			[
+				"theme",
+				"UI: Select Theme"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 350.0,
+		"history":
+		[
+			"os.getcwd();",
+			"os.path",
+			"version",
+			"import os;",
+			"import sys;",
+			"import sys.io;",
+			"__DIR__",
+			"pwd",
+			"this.restart()",
+			"restart();",
+			"restart()",
+			"restart"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/michaelmcpherson/src/dialogTreeTool"
+	],
+	"file_history":
+	[
+		"/home/michaelmcpherson/src/notMine/DIY-FilingsResearch/LICENSE.md",
+		"/home/michaelmcpherson/src/writtenRecords/recurseReplace.sh",
+		"/home/michaelmcpherson/src/notMine/rplidar_sdk/rplidar.py",
+		"/home/michaelmcpherson/src/gitRecurse/projectlist.config",
+		"/home/michaelmcpherson/src/gitRecurse/gitScan.sh",
+		"/home/michaelmcpherson/src/writtenRecords/BusinessDocs/Bastion Software/dev-imp_guidelines",
+		"/home/michaelmcpherson/Documents/First, you have The Plan.",
+		"/home/michaelmcpherson/src/writtenRecords/I LOVE YOU!!",
+		"/home/michaelmcpherson/src/writtenRecords/BusinessDocs/ComNav/Bethany's laptop setup:",
+		"/home/michaelmcpherson/src/partsOfSpeech/site/js/helper.js",
+		"/home/michaelmcpherson/src/partsOfSpeech/site/index.php",
+		"/home/michaelmcpherson/src/homepage/index.php",
+		"/home/michaelmcpherson/src/dialogTreeTool/.jshintrc",
+		"/home/michaelmcpherson/src/dialogTreeTool/site/js/app.js",
+		"/home/michaelmcpherson/src/dialogTreeTool/site/app.js",
+		"/home/michaelmcpherson/I LOVE YOU!!",
+		"/home/michaelmcpherson/src/dialogTreeTool/site/index.html",
+		"/home/michaelmcpherson/src/dialogTreeTool/deployLocal.sh",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/.gitignore",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/server.js",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/src/Core/Game.js",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/webpack.config.js",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/src/index.js",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/src/index.html",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/src/Constants.js",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/src/Entities/Entity.js",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/src/Entities/flagShip.js",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/package.json",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/package-lock.json",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/src/Core/AssetManager.js",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/src/Core/Canvas.js",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/src/Entities/Obstacles/ObstacleManager.js",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/src/Entities/Obstacles/Obstacle.js",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/src/Core/Utils.js",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/src/Core/Game.test.js",
+		"/home/michaelmcpherson/src/bastionSrc/spaceCadets/READMECeros.md",
+		"/home/michaelmcpherson/.local/share/endless-sky/saves/Oleg Naismith~damntweaks.txt",
+		"/home/michaelmcpherson/.local/share/endless-sky/saves/Oleg Naismith.txt",
+		"/home/michaelmcpherson/Downloads/esMods/epic-trucker-master/README.md",
+		"/home/michaelmcpherson/Documents/BusinessDocs/goodJDGuidelines",
+		"/home/michaelmcpherson/Documents/BusinessDocs/Bastion Software/offerStructure",
+		"/home/michaelmcpherson/Documents/camdennationalconcern",
+		"/home/michaelmcpherson/src/roundtable/webmethods/dbConnector.php",
+		"/home/michaelmcpherson/src/roundtable/webmethods/defaultConnector.php",
+		"/home/michaelmcpherson/src/roundtable/js/app2.js",
+		"/home/michaelmcpherson/src/roundtable/index2.html",
+		"/home/michaelmcpherson/src/roundtable/index.html",
+		"/home/michaelmcpherson/src/roundtable/js/app.js",
+		"/home/michaelmcpherson/Downloads/vendorapp.js",
+		"/home/michaelmcpherson/Documents/BusinessDocs/Bastion Software/localCompetitors",
+		"/home/michaelmcpherson/Documents/BusinessDocs/Bastion Software/bastionSoftwareVitalInfo",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/.github/workflows/dev.yml",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/site/index2.html",
+		"/home/michaelmcpherson/.local/share/endless-sky/saves/Oleg Naismith~testing.txt",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/site/portfolio/userprovisioningengine.html",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/site/portfolio/informationAwarenessAgent.html",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/site/portfolio/securityHardeningClient.html",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/.github/workflows/uat.yml",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/.github/workflows/main.yml",
+		"/home/michaelmcpherson/.config/sublime-text-3/Packages/HTMLBeautify/HTMLBeautify.sublime-settings",
+		"/home/michaelmcpherson/.config/sublime-text-3/Packages/User/HTMLBeautify.sublime-settings",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/site/services/security.html",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/site/services/disasterplanning.html",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/site/services/development.html",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/deployLocal.sh",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/site/portfolio/boilerplatePage.html",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/.gitignore",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/portfolio/userprovisioningengine.html",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/css/main.css",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/js/main.js",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/index.html",
+		"/home/michaelmcpherson/keys",
+		"/home/michaelmcpherson/src/fbiDownScript/05fbidata.sh",
+		"/home/michaelmcpherson/src/bastionSrc/gitScan.sh",
+		"/home/michaelmcpherson/src/bastionSrc/homepage/bastionHomePage.sublime-project",
+		"/var/www/html/oriverb/oriverb/index.html",
+		"/home/michaelmcpherson/src/jubilant-octo-lamp/README.md",
+		"/var/www/html/oriverb/oriverb/js/main.js",
+		"/var/www/html/homepage/proposal.html",
+		"/home/michaelmcpherson/src/notMine/dbanalyzer/mysql.php",
+		"/home/michaelmcpherson/src/comnavnotes/transferData/autoCadTransposer/ww.txt",
+		"/home/michaelmcpherson/Documents/BusinessDocs/Group Dynamics/GD notes",
+		"/home/michaelmcpherson/src/comnavnotes/transferData/autoCadTransposer/cad.txt",
+		"/home/michaelmcpherson/src/comnavnotes/ComNavNotes",
+		"/home/michaelmcpherson/src/comnavnotes/TIMELINE FOR PHP SITE MIGRATION",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/defaultConnector.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/PasswordHash.php",
+		"/home/michaelmcpherson/Documents/power consumption",
+		"/home/michaelmcpherson/Documents/BusinessDocs/possible heating guy for apartment",
+		"/home/michaelmcpherson/src/staggeredContact/writepass.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/pierrefrancoisdulac.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/js/helper.js",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/index.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/loadEventsSinceLastContact.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/loadtodayspeople.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/logout.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/wpa_supplicant.conf",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/css/style.css",
+		"/home/michaelmcpherson/src/writtenRecords/how to symbolic link your www-http folder to dev source",
+		"/home/michaelmcpherson/src/comnavnotes/DWFtoJPG/DWFToImage/DWFToImage/Form1.cs",
+		"/home/michaelmcpherson/src/comnavnotes/elems",
+		"/home/michaelmcpherson/src/comnavnotes/DWFtoJPG/DWFToImage/DWFToImage/Program.cs",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/addEvent.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/loadAllEvents.php",
+		"/media/michaelmcpherson/CentOS-8-2-2004-aarch64-dvd/boot.catalog",
+		"/home/michaelmcpherson/SOLAR calculations",
+		"/home/michaelmcpherson/src/phpInsecureREST/api/shared/abstractRestConnection.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/addPerson.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/js/modal.js",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/css/modal.css",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/loadPeople.php",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/resources/uiConfig.php",
+		"/home/michaelmcpherson/src/staggeredContact/README.md",
+		"/home/michaelmcpherson/src/staggeredContact/staggeredContacts/css/leftBarFlexItems.css",
+		"/home/michaelmcpherson/src/staggeredContact/deployLocal.sh",
+		"/home/michaelmcpherson/src/staggeredContact/.jshintrc",
+		"/home/michaelmcpherson/src/notMine/nodeserv/var/nodeserv/node.js/node_modules/extender/.jshintrc",
+		"/home/michaelmcpherson/src/newUIframework/uiSite/index.php",
+		"/home/michaelmcpherson/src/roundtable/webmethods/getAvailableUsers.php",
+		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/resources/postHandler.php",
+		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/resources/pushHandler.php",
+		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/frontEnd/resources/loadPost.php",
+		"/home/michaelmcpherson/src/clientSideBlogger/bloggingClientBase/frontEnd/resources/postHandler.php",
+		"/home/michaelmcpherson/.config/sublime-text-3/Packages/User/CommandOnSave.sublime-settings",
+		"/home/michaelmcpherson/src/SublimeCommandOnSave/CommandOnSave.py",
+		"/home/michaelmcpherson/src/staggeredContact/.onsave",
+		"/home/michaelmcpherson/.config/sublime-text-3/Packages/User/Default.sublime-settings",
+		"/home/michaelmcpherson/.config/sublime-text-3/Packages/OnSave/Default.sublime-settings"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 117.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 45.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 127.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 127.0
+	},
+	"output.diagnostics":
+	{
+		"height": 121.0
+	},
+	"output.exec":
+	{
+		"height": 385.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.language servers":
+	{
+		"height": 121.0
+	},
+	"output.nodejs":
+	{
+		"height": 157.0
+	},
+	"pinned_build_system": "Packages/Default/Syntax Tests.sublime-build",
+	"project": "dialogTreeTool.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 592.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 216.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
