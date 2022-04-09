@@ -1,0 +1,37 @@
+ <input id="first_name" value="{{ first_name }}" /> • <input id="first_name" [value]="first_name" /> <input id="first_name" value="first_name" />  <input id="first_name" value="{{ first_name }}" /> • <input id="first_name" [value]="first_name" /> <input id="first_name" value="first_name" /> 
+
+ Given a sorted array nums, remove the duplicates in-place such that each element appears only once and returns the new length.
+Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+
+
+//Input: nums = [1,1,2]
+//Output: 2,num [1,2]
+
+//Input: nums = [0,0,1,1,1,2,2,3,3,4]
+//Output: 5, nums = [0,1,2,3,4]
+
+
+Given a binary array nums, return the maximum number of consecutive 1's in the array.
+
+//Input: nums = [1,1,0,1,1,1]
+//Output: 3
+
+
+//Input: nums = [1,0,1,1,0,1]
+//Output: 2
+
+function BinMax(ary Array){
+    int counter = 0;
+    int max = 0;
+    for (int i = 0; i<ary.Length; i++){
+        if(ary[i] == 1){
+            counter++;
+            if(counter>max){
+                max=counter;
+            }
+        }else{
+            counter=0
+        }
+    }
+    return max;
+}

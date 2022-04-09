@@ -1,0 +1,38 @@
+
+DB_Layer context = IDB_Layer.whatever
+
+[CacheInvalidated]
+Class SomeClass{
+
+	ActionRequest RueDresser(){
+		var currentTemperature = GetWeather();
+		var seasonalClothing = getSeasonalClothing(currentTemperature);
+		return index();
+	}
+	Function GetWeather(){
+		//care about datetime
+		//temperature
+		newWeather = //GET request to weather/api/now
+		return newWeather.Tempature;
+	}
+
+	Function getSeasonalClothing(double temp){
+		return context.getClothingWithTemperatureIn(temp)
+	}
+}
+Class DB_Layer{
+	Mongo
+	CouchDB
+	MSSQL
+	MySQL
+	Moq
+}
+
+Function Test_GetSeasonClothing(temp = 80){
+	var retVal = getSeasonalClothing(temp);
+	assert retVal == "Summer";
+}
+
+DB
+
+Weather API

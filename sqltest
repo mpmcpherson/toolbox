@@ -1,0 +1,51 @@
+/*
+DESCRIBE cage_assignments;
++---------+------+------+-----+---------+----------------+
+| Field   | Type | Null | Key | Default | Extra          |
++---------+------+------+-----+---------+----------------+
+| id      | int  | NO   | PRI | NULL    | auto_increment |
+| cage_id | int  | YES  |     | NULL    |                |
+| cat_id  | int  | YES  |     | NULL    |                |
++---------+------+------+-----+---------+----------------+
+DESCRIBE cages;
++----------+------+------+-----+---------+----------------+
+| Field    | Type | Null | Key | Default | Extra          |
++----------+------+------+-----+---------+----------------+
+| id       | int  | NO   | PRI | NULL    | auto_increment |
+| capacity | int  | YES  |     | NULL    |                |
++----------+------+------+-----+---------+----------------+
+DESCRIBE cats;
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| id    | int          | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(255) | YES  |     | NULL    |                |
+| color | varchar(255) | YES  |     | NULL    |                |
+| age   | int          | YES  |     | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+
+
+1) How many white cats are there?
+2) What is the average age of the cats?
+3) What are the names of the cats in cage 2?
+4) Which cages are over capacity?
+
+*/
+
+-- select * from cats;
+-- 1
+-- select count(*) from cats where color like '%hite'
+-- 2
+-- select AVG(age) as average_age from cats
+-- 3
+/*
+select name from cats 
+left join 
+cage_assignments on cats.id = cage_assignments.cat_id
+where cage_id = 2
+*/
+
+select ca.cage_id from cages c
+join cage_assignments ca on ca.cage_id = c.id
+group by ca.cage_id
+having count(*) > c.capacity;
