@@ -1,4 +1,11 @@
+/*
+  Bluefruit Feather Tester
 
+  This sketch provides a simple tester for Bluefruit Feather boards from Adafruit
+
+  created 31 Jan. 2016
+  by K. Townsend (KTOWN)
+*/
 
 #include <Arduino.h>
 #include <SPI.h>
@@ -7,7 +14,7 @@
 #include "BluefruitConfig.h"
 
 #if SOFTWARE_SERIAL_AVAILABLE
-  #include <SoftwareSerial.h>S
+  #include <SoftwareSerial.h>
 #endif
 
 Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
@@ -25,7 +32,7 @@ void error(const __FlashStringHelper*err) {
 /**************************************************************************/
 /*!
 
-*/  
+*/
 /**************************************************************************/
 void setup()
 {
