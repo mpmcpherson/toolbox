@@ -1,12 +1,3 @@
-#include <Adafruit_BLEEddystone.h>
-#include <Adafruit_BluefruitLE_SPI.h>
-#include <Adafruit_ATParser.h>
-#include <Adafruit_BLE.h>
-#include <Adafruit_BLEGatt.h>
-#include <Adafruit_BLEMIDI.h>
-#include <Adafruit_BLEBattery.h>
-#include <Adafruit_BluefruitLE_UART.h>
-
 /*********************************************************************
  This is an example for our nRF51822 based Bluefruit LE modules
 
@@ -21,20 +12,13 @@
  any redistribution
 *********************************************************************/
 
-/*
-  This example shows how to send HID (keyboard/mouse/etc) data via BLE
-  Note that not all devices support BLE Mouse!
-  - OSX, Windows 10 both work
-  - Android has limited support
-  - iOS completely ignores mouse
-*/
-
 #include <Arduino.h>
 #include <SPI.h>
-#include "BluefruitConfig.h"
+#include "Adafruit_BLE.h"
+#include "Adafruit_BluefruitLE_SPI.h"
+#include "Adafruit_BluefruitLE_UART.h"
 
-//lol
-#include <Adafruit_LSM6DSOX.h>
+#include "BluefruitConfig.h"
 
 #if SOFTWARE_SERIAL_AVAILABLE
   #include <SoftwareSerial.h>
@@ -67,11 +51,14 @@
                               bonding data stored on the chip, meaning the
                               central device won't be able to reconnect.
     MINIMUM_FIRMWARE_VERSION  Minimum firmware version to have some new features
+    MODE_LED_BEHAVIOUR        LED activity, valid options are
+                              "DISABLE" or "MODE" or "BLEUART" or
+                              "HWUART"  or "SPI"  or "MANUAL"
     -----------------------------------------------------------------------*/
-    #define FACTORYRESET_ENABLE         0
+    #define FACTORYRESET_ENABLE         1
     #define MINIMUM_FIRMWARE_VERSION    "0.6.6"
+    #define MODE_LED_BEHAVIOUR          "MODE"
 /*=========================================================================*/
-
 
 // Create the bluefruit object, either software serial...uncomment these lines
 /*
@@ -82,7 +69,7 @@ Adafruit_BluefruitLE_UART ble(bluefruitSS, BLUEFRUIT_UART_MODE_PIN,
 */
 
 /* ...or hardware serial, which does not need the RTS/CTS pins. Uncomment this line */
-// Adafruit_BluefruitLE_UART ble(BLUEFRUIT_HWSERIAL_NAME, BLUEFRUIT_UART_MODE_PIN);
+// Adafruit_BluefruitLE_UART ble(Serial1, BLUEFRUIT_UART_MODE_PIN);
 
 /* ...hardware SPI, using SCK/MOSI/MISO hardware SPI pins and then user selected CS/IRQ/RST */
 Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
@@ -92,13 +79,6 @@ Adafruit_BluefruitLE_SPI ble(BLUEFRUIT_SPI_CS, BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_
 //                             BLUEFRUIT_SPI_MOSI, BLUEFRUIT_SPI_CS,
 //                             BLUEFRUIT_SPI_IRQ, BLUEFRUIT_SPI_RST);
 
-
-// For SPI mode, we need a CS pin
-#define LSM_CS 10
-// For software-SPI mode we need SCK/MOSI/MISO pins
-#define LSM_SCK 13
-#define LSM_MISO 12
-#define LSM_MOSI 11
 
 // A small helper
 void error(const __FlashStringHelper*err) {
@@ -112,13 +92,14 @@ void error(const __FlashStringHelper*err) {
             automatically on startup)
 */
 /**************************************************************************/
-Adafruit_LSM6DSOX sox;
 void setup(void)
 {
   while (!Serial);  // required for Flora & Micro
   delay(500);
 
   Serial.begin(115200);
+  Serial.println(F("Adafruit Bluefruit Command Mode Example"));
+  Serial.println(F("---------------------------------------"));
 
   /* Initialise the module */
   Serial.print(F("Initialising the Bluefruit LE module: "));
@@ -128,23 +109,6 @@ void setup(void)
     error(F("Couldn't find Bluefruit, make sure it's in CoMmanD mode & check wiring?"));
   }
   Serial.println( F("OK!") );
-
-  Serial.println("Adafruit LSM6DS33 shake test!");
-
-  if (!sox.begin_I2C()) {
-    // if (!lsm6ds33.begin_SPI(LSM_CS)) {
-    // if (!lsm6ds33.begin_SPI(LSM_CS, LSM_SCK, LSM_MISO, LSM_MOSI)) {
-    Serial.println("Failed to find LSM6DS33 chip");
-    while (1) {
-      delay(10);
-    }
-  }
-
-  Serial.println("LSM6DS33 Found!");
-
-  // enable shake detection
-  sox.enableWakeup(true);
-
 
   if ( FACTORYRESET_ENABLE )
   {
@@ -162,37 +126,26 @@ void setup(void)
   /* Print Bluefruit information */
   ble.info();
 
-  // This demo only available for firmware from 0.6.6
-  if ( !ble.isVersionAtLeast(MINIMUM_FIRMWARE_VERSION) )
+  Serial.println(F("Please use Adafruit Bluefruit LE app to connect in UART mode"));
+  Serial.println(F("Then Enter characters to send to Bluefruit"));
+  Serial.println();
+
+  ble.verbose(false);  // debug info is a little annoying after this point!
+
+  /* Wait for connection */
+  while (! ble.isConnected()) {
+      delay(500);
+  }
+
+  // LED Activity command is only supported from 0.6.6
+  if ( ble.isVersionAtLeast(MINIMUM_FIRMWARE_VERSION) )
   {
-    error(F("This sketch requires firmware version " MINIMUM_FIRMWARE_VERSION " or higher!"));
+    // Change Mode LED Activity
+    Serial.println(F("******************************"));
+    Serial.println(F("Change LED activity to " MODE_LED_BEHAVIOUR));
+    ble.sendCommandCheckOK("AT+HWModeLED=" MODE_LED_BEHAVIOUR);
+    Serial.println(F("******************************"));
   }
-
-  /* Enable HID Service (including Mouse) */
-  Serial.println(F("Enable HID Service (including Mouse): "));
-  if (! ble.sendCommandCheckOK(F( "AT+BleHIDEn=On"  ))) {
-    error(F("Failed to enable HID (firmware >=0.6.6?)"));
-  }
-  /* set acceleration range (smaller means more sensitive?) */
-  sox.setAccelRange(LSM6DS_ACCEL_RANGE_2_G);
-  
-  /*set gyro range. Not sure what the parameters mean here*/
-  sox.setGyroRange(LSM6DS_GYRO_RANGE_250_DPS );
-
-  /*setting the accelerometer sampling frequency. Higher should mean the mouse movese 
-  faster? Or more smoothly I guess*/
-  sox.setAccelDataRate(LSM6DS_RATE_12_5_HZ);
-
-  /*ditto for the gyro*/
-  sox.setGyroDataRate(LSM6DS_RATE_12_5_HZ);
-  
-  /* Add or remove service requires a reset */
-  Serial.println(F("Performing a SW reset (service changes require a reset): "));
-  if (! ble.reset() ) {
-    error(F("Could not reset??"));
-  }
-
-
 }
 
 /**************************************************************************/
@@ -200,48 +153,60 @@ void setup(void)
     @brief  Constantly poll for new command or response data
 */
 /**************************************************************************/
+void loop(void)
+{
+  // Check for user input
+  char inputs[BUFSIZE+1];
 
-void loop() {
-  // check for shake
-  if (sox.shake()) {
-    Serial.println("SHAKE!");
-  } else {
-    sensors_event_t accel;
-    sensors_event_t gyro;
-    sensors_event_t temp;
-    sox.getEvent(&accel, &gyro, &temp);
+  if ( getUserInput(inputs, BUFSIZE) )
+  {
+    // Send characters to Bluefruit
+    Serial.print("[Send] ");
+    Serial.println(inputs);
 
-    float x = accel.acceleration.x;
-    float y = accel.acceleration.y;
-    
-    ble.print(F("AT+BleHidMouseMove="));
-    ble.println(x);
-    ble.println(y);
-    
-    Serial.print("\t\tTemperature ");
-    Serial.print(temp.temperature);
-    Serial.println(" deg C");
-  
-    /* Display the results (acceleration is measured in m/s^2) */
-    Serial.print("\t\tAccel X: ");
-    Serial.print(accel.acceleration.x);
-    Serial.print(" \tY: ");
-    Serial.print(accel.acceleration.y);
-    Serial.print(" \tZ: ");
-    Serial.print(accel.acceleration.z);
-    Serial.println(" m/s^2 ");
-  
-    /* Display the results (rotation is measured in rad/s) */
-    Serial.print("\t\tGyro X: ");
-    Serial.print(gyro.gyro.x);
-    Serial.print(" \tY: ");
-    Serial.print(gyro.gyro.y);
-    Serial.print(" \tZ: ");
-    Serial.print(gyro.gyro.z);
-    Serial.println(" radians/s ");
-    Serial.println();
-  
-    delay(100);
+    ble.print("AT+BLEUARTTX=");
+    ble.println(inputs);
+
+    // check response stastus
+    if (! ble.waitForOK() ) {
+      Serial.println(F("Failed to send?"));
+    }
   }
 
+  // Check for incoming characters from Bluefruit
+  ble.println("AT+BLEUARTRX");
+  ble.readline();
+  if (strcmp(ble.buffer, "OK") == 0) {
+    // no data
+    return;
+  }
+  // Some data was found, its in the buffer
+  Serial.print(F("[Recv] ")); Serial.println(ble.buffer);
+  ble.waitForOK();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Checks for user input (via the Serial Monitor)
+*/
+/**************************************************************************/
+bool getUserInput(char buffer[], uint8_t maxSize)
+{
+  // timeout in 100 milliseconds
+  TimeoutTimer timeout(100);
+
+  memset(buffer, 0, maxSize);
+  while( (!Serial.available()) && !timeout.expired() ) { delay(1); }
+
+  if ( timeout.expired() ) return false;
+
+  delay(2);
+  uint8_t count=0;
+  do
+  {
+    count += Serial.readBytes(buffer+count, maxSize);
+    delay(2);
+  } while( (count < maxSize) && (Serial.available()) );
+
+  return true;
 }
