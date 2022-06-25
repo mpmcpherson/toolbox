@@ -34,7 +34,7 @@
 #include "BluefruitConfig.h"
 
 //lol
-#include <Adafruit_LSM6DS33.h>
+#include <Adafruit_LSM6DSOX.h>
 
 #if SOFTWARE_SERIAL_AVAILABLE
   #include <SoftwareSerial.h>
@@ -211,13 +211,12 @@ void loop() {
     sensors_event_t temp;
     sox.getEvent(&accel, &gyro, &temp);
 
-    char x[] = accel.acceleration.x;
-    char y[] = accel.acceleration.y;
-    char medial[] = strcat(x,",");
-    char input[] = strcat(medial,y);
+    float x = accel.acceleration.x;
+    float y = accel.acceleration.y;
     
     ble.print(F("AT+BleHidMouseMove="));
-    ble.println(input);
+    ble.println(x);
+    ble.println(y);
     
     Serial.print("\t\tTemperature ");
     Serial.print(temp.temperature);
