@@ -34,7 +34,7 @@
 #include "BluefruitConfig.h"
 
 //lol
-#include <Adafruit_LSM6DSOX.h>
+#include <Adafruit_LSM6DS33.h>
 
 #if SOFTWARE_SERIAL_AVAILABLE
   #include <SoftwareSerial.h>
