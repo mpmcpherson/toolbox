@@ -8,6 +8,8 @@ import (
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/widget"
+	"database/sql"
+	_ "github.com/go-sql-driver/mysql"
 )
 func main() {
 	application := app.New()
