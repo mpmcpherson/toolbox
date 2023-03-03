@@ -5,7 +5,7 @@ import os
 
 
 # Set up OpenAI API credentials
-openai.api_key = “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”
+openai.api_key = “fx-spPosFminXJDHVEFq98RG3OyoxSWWkEAvzMZCgzGXXljPIqK"
 
 
 # Define the command for the plugin
