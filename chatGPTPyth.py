@@ -1,7 +1,7 @@
 import openai
 import os
 
-openai.api_key = ''
+openai.api_key = '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'
 
 def generate_text(myPrompt):
     response = openai.Completion.create(
