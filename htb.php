@@ -8,11 +8,11 @@ print_r(base64_decode($str)."\n");
 
 
 
-Va beqre gb trarengr gur vaivgr pbqr, znxr n CBFG erdhrfg gb /ncv/vaivgr/trarengr
+//Va beqre gb trarengr gur vaivgr pbqr, znxr n CBFG erdhrfg gb /ncv/vaivgr/trarengr
 
-In order to generate the invite code, make a POST request to /api/invite/generate
+//In order to generate the invite code, make a POST request to /api/invite/generate
 
-
+/*
 
 function doMakeInviteCode() {
     $.ajax({
@@ -27,5 +27,5 @@ function doMakeInviteCode() {
         }
     })
 }
-
+*/
 ?>
