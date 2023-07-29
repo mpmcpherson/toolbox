@@ -1,8 +1,9 @@
 import openai
 from transformers import pipeline
-import sentencepiece as spm
 from transformers import AutoTokenizer
-
+from var_dump import var_dump
+import tiktoken
+import mneumosyne
 
 def import_text_file(file_path):
     try:
@@ -24,6 +25,10 @@ def indexTokenizer(inputText):
     return tokens
 
 
+memory = mneumosyne.LongTermMemory()
+
+
+
 openAPIKey = import_text_file("../openapikey.txt")
 # Replace 'YOUR_OPENAI_API_KEY' with your actual API key from OpenAI
 openai.api_key = openAPIKey
@@ -31,7 +36,7 @@ openai.api_key = openAPIKey
 
 def get_sentiment_score(text):
     # Initialize the sentiment analyzer
-    sentiment_analyzer = pipeline("sentiment-analysis")
+    sentiment_analyzer = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
     # Get the sentiment score of the input text
     sentiment_score = sentiment_analyzer(text)[0]
     return sentiment_score
@@ -49,8 +54,12 @@ def generate_gpt3_response(prompt, sentiment_score):
         # If the sentiment score is negative or neutral, use a setting for a more general response
         gpt3_parameters = {
             "temperature": 0.8,
-            "max_tokens": 100
+            "max_tokens": 200
         }
+
+    enc = tiktoken.encoding_for_model("text-davinci-002")
+    print("tokens: ")
+    print(enc.encode(prompt))
 
     # Generate the GPT-3 response using the given parameters
     response = openai.Completion.create(
@@ -63,10 +72,11 @@ def generate_gpt3_response(prompt, sentiment_score):
 
 
 # Example usage:
-user_input = "I'm feeling great today!"
+user_input = "Can you explain the movie 'The Last Unicorn' to me?"
 sentiment_score = get_sentiment_score(user_input)
 print("Sentiment Score:", sentiment_score)
 
 gpt3_response = generate_gpt3_response(user_input, sentiment_score)
+# var_dump(gpt3_response)
 print("GPT-3 Response:")
 print(gpt3_response)

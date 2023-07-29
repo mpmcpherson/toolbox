@@ -1,6 +1,7 @@
 import openai
 import difflib
 import networkx as nx
+import tiktoken
 
 
 class LongTermMemory:
@@ -58,6 +59,7 @@ class LongTermMemory:
         response_identifier = f"{identifier}_response"
         self.store_memory(response_identifier, response, topic)
         self.create_relation(identifier, response_identifier, "generated")
+
 
 # Example Usage:
 ltm = LongTermMemory()
