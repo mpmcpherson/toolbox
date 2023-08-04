@@ -23,9 +23,10 @@ def import_text_file(file_path):
 
 
 def get_sentiment_score(text):
+    sentModel = "distilbert-base-uncased-finetuned-sst-2-english"
     # Initialize the sentiment analyzer
-    sentiment_analyzer = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
+    sentiment_analyzer = pipeline("sentiment-analysis",
+                                  model=sentModel)
     # Get the sentiment score of the input text
     sentiment_score = sentiment_analyzer(text)[0]
     return sentiment_score
-

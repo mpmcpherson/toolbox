@@ -1,7 +1,6 @@
 import openai
 import difflib
 import networkx as nx
-import tiktoken
 
 
 class LongTermMemory:
@@ -29,7 +28,8 @@ class LongTermMemory:
         self.memory_graph.add_edge(memory1, memory2, relation=relation)
 
     def find_similar_memories(self, query, threshold=0.7):
-        # Use the difflib library to find similar memories based on content similarity
+        # Use the difflib library to find similar
+        # memories based on content similarity
         similar_memories = []
         for identifier, content in self.long_term_memory.items():
             similarity_score = difflib.SequenceMatcher(None, query, content).ratio()
@@ -38,13 +38,15 @@ class LongTermMemory:
         return similar_memories
 
     def retrieve_memories_by_topic(self, topic):
-        # Retrieve all memories linked to a specific topic from the topic dictionary
+        # Retrieve all memories linked to a specific
+        # topic from the topic dictionary
         return self.topic_dictionary.get(topic, [])
 
     def gpt3_response(self, prompt, context=None):
         # Generate the GPT-3 response using OpenAI API
         response = openai.Completion.create(
-            engine="text-davinci-002",  # Replace with the engine you want to use
+            # Replace with the engine you want to use
+            engine="text-davinci-002",
             prompt=prompt,
             context=context,
             temperature=0.7,
@@ -55,7 +57,8 @@ class LongTermMemory:
     def encode_memory(self, identifier, content, topic, response):
         # Store the input (content) as a memory
         self.store_memory(identifier, content, topic)
-        # Store the GPT-3 response as a memory with a relation to the input memory
+        # Store the GPT-3 response as a memory
+        # with a relation to the input memory
         response_identifier = f"{identifier}_response"
         self.store_memory(response_identifier, response, topic)
         self.create_relation(identifier, response_identifier, "generated")
@@ -68,7 +71,9 @@ ltm = LongTermMemory()
 input_memory_id = "memory1"
 input_memory_content = "How does photosynthesis work?"
 input_memory_topic = "science"
-ltm.encode_memory(input_memory_id, input_memory_content, input_memory_topic, ltm.gpt3_response(input_memory_content))
+ltm.encode_memory(input_memory_id, input_memory_content,
+                  input_memory_topic,
+                  ltm.gpt3_response(input_memory_content))
 
 # Retrieve the GPT-3 response memory based on the input memory
 retrieved_memories = ltm.retrieve_memories_by_topic("science")
