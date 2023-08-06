@@ -1,7 +1,7 @@
 import openai
 import responses as r
 import utilities as u
-
+import mneumosyne as mn
 
 openAPIKey = u.import_text_file("../../openapikey.txt")
 # Replace 'YOUR_OPENAI_API_KEY' with your actual API key from OpenAI

@@ -2,6 +2,10 @@ import openai
 import tiktoken
 
 
+def TikTokenTokenize(input):
+    return tiktoken.encoding_for_model("text-davinci-002").encode(input)
+
+
 def generate_gpt3_response(prompt, sentiment_score):
     # Define the GPT-3 API parameters based on the sentiment score
     if sentiment_score['label'] == 'POSITIVE':
@@ -18,10 +22,6 @@ def generate_gpt3_response(prompt, sentiment_score):
             "temperature": 0.8,
             "max_tokens": 200
         }
-
-    enc = tiktoken.encoding_for_model("text-davinci-002")
-    print("tokens: ")
-    print(enc.encode(prompt))
 
     # Generate the GPT-3 response using the given parameters
     response = openai.Completion.create(

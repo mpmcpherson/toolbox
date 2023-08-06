@@ -1,6 +1,7 @@
-import openai
 import difflib
 import networkx as nx
+import responses as r
+import utilities as u
 
 
 class LongTermMemory:
@@ -44,14 +45,9 @@ class LongTermMemory:
 
     def gpt3_response(self, prompt, context=None):
         # Generate the GPT-3 response using OpenAI API
-        response = openai.Completion.create(
-            # Replace with the engine you want to use
-            engine="text-davinci-002",
-            prompt=prompt,
-            context=context,
-            temperature=0.7,
-            max_tokens=200
-        )
+        response = r.generate_gpt3_response(prompt,
+                                            u.get_sentiment_score(prompt))
+
         return response['choices'][0]['text']
 
     def encode_memory(self, identifier, content, topic, response):
@@ -62,6 +58,60 @@ class LongTermMemory:
         response_identifier = f"{identifier}_response"
         self.store_memory(response_identifier, response, topic)
         self.create_relation(identifier, response_identifier, "generated")
+
+
+class ShortTermMemory:
+    # Initialize an empty memory store to hold memory units
+    memory_store = []
+
+    def encode_input(input):
+        raise NotImplementedError("not yet implemented")
+
+    def index_memory_unit_by_token(memory_unit, token):
+        raise NotImplementedError("not yet implemented")
+
+    def get_related_memory_units():
+        raise NotImplementedError("not yet implemented")
+
+    def count_tokens(memory_unit):
+        raise NotImplementedError("not yet implemented")
+
+    # Function to encode and index a discrete input
+    def encode_and_index_input(input_text):
+        # Encode the input and create a memory unit
+        memory_unit = encode_input(input_text)
+
+        # Index the memory unit by individual tokens
+        tokens = r.TikTokenTokenize(input_text)
+        for token in tokens:
+            index_memory_unit_by_token(memory_unit, token)
+
+        # Add the memory unit to the memory store
+        memory_store.append(memory_unit)
+
+    # Function to re-encode the entire input based on
+    # full experience, weighted by tokens
+    def reencode_full_input():
+        # Get the list of all memory units related
+        # to the current full experience
+        related_memory_units = get_related_memory_units()
+
+        # Calculate weights for each memory unit based
+        # on the number of tokens they indexed
+        total_tokens = 0
+        for memory_unit in related_memory_units:
+            total_tokens += count_tokens(memory_unit)
+
+        # Re-encode the entire input based on the related
+        # memory units and their token weights
+        full_experience = ""
+        for memory_unit in related_memory_units:
+            tokens = r.TikTokenTokenize(memory_unit)
+            weight = tokens.count / total_tokens
+            weighted_content = memory_unit.content * weight
+            full_experience += weighted_content
+
+        return full_experience
 
 
 # Example Usage:
@@ -78,4 +128,4 @@ ltm.encode_memory(input_memory_id, input_memory_content,
 # Retrieve the GPT-3 response memory based on the input memory
 retrieved_memories = ltm.retrieve_memories_by_topic("science")
 for memory_id in retrieved_memories:
-    print(f"Memory ID: {memory_id}, Content: {ltm.long_term_memory[memory_id]}")
+    print(f"MemID: {memory_id}, Content: {ltm.long_term_memory[memory_id]}")
