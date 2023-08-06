@@ -1,7 +1,9 @@
+import time
 import difflib
 import networkx as nx
 import responses as r
 import utilities as u
+import tiktoken
 
 
 class LongTermMemory:
@@ -33,8 +35,8 @@ class LongTermMemory:
         # memories based on content similarity
         similar_memories = []
         for identifier, content in self.long_term_memory.items():
-            similarity_score = difflib.SequenceMatcher(None, query, content).ratio()
-            if similarity_score >= threshold:
+            sim_scr = difflib.SequenceMatcher(None, query, content).ratio()
+            if sim_scr >= threshold:
                 similar_memories.append(identifier)
         return similar_memories
 
@@ -64,43 +66,76 @@ class ShortTermMemory:
     # Initialize an empty memory store to hold memory units
     memory_store = []
 
-    def encode_input(input):
-        raise NotImplementedError("not yet implemented")
+    def __init__(self):
+        self.short_term_memory = {}
+        self.topic_dictionary = {}
+        self.memory_graph = nx.Graph()
 
-    def index_memory_unit_by_token(memory_unit, token):
-        raise NotImplementedError("not yet implemented")
+    # Function to encode the input and create a memory unit
+    def encode_input(input_text, context, emotional_content=None):
+        # Get the current timestamp
+        timestamp = int(time.time())
 
-    def get_related_memory_units():
-        raise NotImplementedError("not yet implemented")
+        # Create a memory unit dictionary
+        memory_unit = {
+            'content': input_text,
+            'context': context,
+            'timestamp': timestamp,
+            'emotional_content': emotional_content
+        }
+
+        return memory_unit
+
+    def index_memory_unit_by_token(self, memory_unit, token):
+        related_memory_units = []
+        # Iterate through the memory store to find related memory units
+        for memory_unit in self.memory_store:
+            if memory_unit['token'] == token:
+                related_memory_units.append(memory_unit)
+
+        return related_memory_units
+
+    def get_related_memory_units(self, context):
+        related_memory_units = []
+        # Iterate through the memory store to find related memory units
+        for memory_unit in self.memory_store:
+            if context in memory_unit['context']:
+                related_memory_units.append(memory_unit)
+
+        return related_memory_units
 
     def count_tokens(memory_unit):
-        raise NotImplementedError("not yet implemented")
+        encoder = tiktoken.encoding_for_model("text-davinci-002")
+        return len(encoder.encode(memory_unit['content']))
 
     # Function to encode and index a discrete input
-    def encode_and_index_input(input_text):
+    def encode_and_index_input(self, input_text):
         # Encode the input and create a memory unit
-        memory_unit = encode_input(input_text)
+        context = "this is where we put in the topic of the conversation"
+        emotional_content = "and this is where we put the calculated emotion"
+
+        memory_unit = self.encode_input(input_text, context, emotional_content)
 
         # Index the memory unit by individual tokens
         tokens = r.TikTokenTokenize(input_text)
         for token in tokens:
-            index_memory_unit_by_token(memory_unit, token)
+            self.index_memory_unit_by_token(memory_unit, token)
 
         # Add the memory unit to the memory store
-        memory_store.append(memory_unit)
+        self.memory_store.append(memory_unit)
 
     # Function to re-encode the entire input based on
     # full experience, weighted by tokens
-    def reencode_full_input():
+    def reencode_full_input(self):
         # Get the list of all memory units related
         # to the current full experience
-        related_memory_units = get_related_memory_units()
+        related_memory_units = self.get_related_memory_units()
 
         # Calculate weights for each memory unit based
         # on the number of tokens they indexed
         total_tokens = 0
         for memory_unit in related_memory_units:
-            total_tokens += count_tokens(memory_unit)
+            total_tokens += self.count_tokens(memory_unit)
 
         # Re-encode the entire input based on the related
         # memory units and their token weights
