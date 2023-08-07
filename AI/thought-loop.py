@@ -70,9 +70,9 @@ class ThoughtProcess():
         return response.choices[0].text.strip()
 
 
+thoughtLoop = ThoughtProcess()
 # Main loop for the AI to continuously listen and respond
 while True:
     user_input = input("User: ")
-    thoughtLoop = ThoughtProcess()
     response = thoughtLoop.process_input(user_input)
     print("AI:", response)
