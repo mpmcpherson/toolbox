@@ -24,7 +24,7 @@ def generate_gpt3_response(prompt, sentiment_score):
         }
 
     # Generate the GPT-3 response using the given parameters
-    response = openai.Completion.create(
+    response = openai.ChatCompletion.create(
         engine="text-davinci-002",  # Replace with the engine you want to use
         prompt=prompt,
         **gpt3_parameters
