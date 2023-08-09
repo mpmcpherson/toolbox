@@ -45,11 +45,11 @@ class ThoughtProcess():
         context.append(response.choices[0].text.strip())
 
         # Store the user input in short-term memory
-        self.short_term_memory.store_input(user_input)
+        self.short_term_memory.encode_input(user_input, context)
 
         # Retrieve related memories from long-term memory
-        context = "Current conversation"
-        related_memories = self.long_term_memory.get_related_memories(context)
+        context = "Current conversation" #this object will need to be more complex
+        related_memories = self.long_term_memory.find_similar_memories(context)
 
         # Concatenate related memories and current input for full experience
         full_experience = user_input + " ".join(
@@ -57,15 +57,15 @@ class ThoughtProcess():
             )
 
         # Process and respond to the full experience
-        ai_response = self.process_input(full_experience)
+        ai_response = self.process_input(full_experience, context)
 
         # Store the AI response in short-term memory
-        self.short_term_memory.store_output(ai_response)
+        self.short_term_memory.encode_input(ai_response, context)
 
         # Store the full experience in long-term memory
         self.long_term_memory.store_memory(context,
-                                           self.full_experience,
-                                           self.emotional_content)
+                                           full_experience,
+                                           context)
 
         return response.choices[0].text.strip()
 
@@ -74,5 +74,5 @@ thoughtLoop = ThoughtProcess()
 # Main loop for the AI to continuously listen and respond
 while True:
     user_input = input("User: ")
-    response = thoughtLoop.process_input(user_input)
+    response = thoughtLoop.process_input(user_input, thoughtLoop.context)
     print("AI:", response)

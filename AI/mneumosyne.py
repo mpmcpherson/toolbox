@@ -72,7 +72,7 @@ class ShortTermMemory:
         self.memory_graph = nx.Graph()
 
     # Function to encode the input and create a memory unit
-    def encode_input(input_text, context, emotional_content=None):
+    def encode_input(self, input_text, context, emotional_content=None):
         # Get the current timestamp
         timestamp = int(time.time())
 
@@ -104,7 +104,7 @@ class ShortTermMemory:
 
         return related_memory_units
 
-    def count_tokens(memory_unit):
+    def count_tokens(self, memory_unit):
         encoder = tiktoken.encoding_for_model("text-davinci-002")
         return len(encoder.encode(memory_unit['content']))
 
@@ -126,10 +126,10 @@ class ShortTermMemory:
 
     # Function to re-encode the entire input based on
     # full experience, weighted by tokens
-    def reencode_full_input(self):
+    def reencode_full_input(self, context):
         # Get the list of all memory units related
         # to the current full experience
-        related_memory_units = self.get_related_memory_units()
+        related_memory_units = self.get_related_memory_units(context)
 
         # Calculate weights for each memory unit based
         # on the number of tokens they indexed
@@ -142,7 +142,7 @@ class ShortTermMemory:
         full_experience = ""
         for memory_unit in related_memory_units:
             tokens = r.TikTokenTokenize(memory_unit)
-            weight = tokens.count / total_tokens
+            weight = len(tokens) / total_tokens
             weighted_content = memory_unit.content * weight
             full_experience += weighted_content
 
