@@ -42,13 +42,14 @@ class ThoughtProcess():
         )
 
         # Update the context with the response to maintain continuity
-        context.append(response.choices[0].text.strip())
+        context.append(response.choices[0].text.strip())  # type: ignore
 
         # Store the user input in short-term memory
         self.short_term_memory.encode_input(user_input, context)
 
         # Retrieve related memories from long-term memory
-        context = "Current conversation" #this object will need to be more complex
+        # this object will need to be more complex
+        context = "Current conversation"
         related_memories = self.long_term_memory.find_similar_memories(context)
 
         # Concatenate related memories and current input for full experience
@@ -67,7 +68,7 @@ class ThoughtProcess():
                                            full_experience,
                                            context)
 
-        return response.choices[0].text.strip()
+        return response.choices[0].text.strip()  # type: ignore
 
 
 thoughtLoop = ThoughtProcess()
