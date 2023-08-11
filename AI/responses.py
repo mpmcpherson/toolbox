@@ -1,5 +1,6 @@
 import openai
 import tiktoken
+import var_dump
 
 
 def TikTokenTokenize(input):
@@ -29,5 +30,7 @@ def generate_gpt3_response(prompt, sentiment_score):
         prompt=prompt,
         **gpt3_parameters
     )
+    var_dump.var_dump(response)
 
-    return response['choices'][0]['text']
+    return response
+    # ['choices'][0]['text']

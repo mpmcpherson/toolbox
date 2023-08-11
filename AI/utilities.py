@@ -28,5 +28,5 @@ def get_sentiment_score(text):
     sentiment_analyzer = pipeline("sentiment-analysis",
                                   model=sentModel)
     # Get the sentiment score of the input text
-    sentiment_score = sentiment_analyzer(text)[0]
+    sentiment_score = sentiment_analyzer(text)
     return sentiment_score
