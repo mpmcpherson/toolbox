@@ -2,11 +2,10 @@ import tensorflow as tf
 from keras.layers import Input, Embedding, MultiHeadAttention, Dense, Dropout, LayerNormalization
 from keras import Model
 from keras.optimizers import Adam
-from keras.optimizers.schedules import ExponentialDecay # stepdecay needs to be pulled in
-from  multimodelStepDecay import MultiModelStepDecay
+from keras.optimizers.schedules import ExponentialDecay
+from multimodelStepDecay import MultiModelStepDecay
 from transformerBuilder import Transformer, MemoryNetwork
 import numpy as np
-
 
 # Create a synthetic dataset
 vocab_size = 10000
@@ -34,12 +33,11 @@ clip_value = 1.0
 optimizer = Adam(learning_rate=initial_learning_rate, clipvalue=clip_value)
 
 # Learning Rate Scheduling (Step Decay)
-step_decay = MultiModelStepDecay(initial_learning_rate, step_size=decay_steps, gamma=0.5)
+model_lr_pairs = [(model, optimizer.lr)]
+drop = 0.5
+epochs_drop = decay_steps
+step_decay = MultiModelStepDecay(model_lr_pairs, drop, epochs_drop)
 optimizer = Adam(learning_rate=step_decay.lr)
-
-# Learning Rate Scheduling (Exponential Decay)
-exp_decay = ExponentialDecay(initial_learning_rate, decay_steps, decay_rate=0.5)
-optimizer = Adam(learning_rate=exp_decay.decay_rate)
 
 model.compile(optimizer=optimizer, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 

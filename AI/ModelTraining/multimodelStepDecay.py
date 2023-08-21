@@ -2,7 +2,7 @@ from keras.callbacks import Callback
 import math
 
 class MultiModelStepDecay(Callback):
-    def __init__(self, model_lr_pairs, drop, epochs_drop):
+    def __init__(self, model_lr_pairs, drop: float, epochs_drop):
         super(MultiModelStepDecay, self).__init__()
         self.model_lr_pairs = model_lr_pairs
         self.drop = drop
