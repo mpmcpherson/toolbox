@@ -164,4 +164,4 @@ ltm.encode_memory(input_memory_id, input_memory_content,
 retrieved_memories = ltm.retrieve_memories_by_topic("science")
 for memory_id in retrieved_memories:
     print(f"MemID: {memory_id}, Content: {ltm.long_term_memory[memory_id]}")
-https://www.displaymodule.com/products/binocular-araugmented-reality-glasses-birdbath-1920-1080-47-fov-optical-module-with-lvds
+# https://www.displaymodule.com/products/binocular-araugmented-reality-glasses-birdbath-1920-1080-47-fov-optical-module-with-lvds
