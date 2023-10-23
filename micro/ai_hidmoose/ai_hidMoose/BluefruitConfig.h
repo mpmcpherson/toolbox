@@ -21,3 +21,5 @@
 #define SCK_LED                        LED_BUILTIN
 #define MISO_LED                       LED_BUILTIN
 #define MOSI_LED                       LED_BUILTIN
+
+#endif // _BLUEFRUIT_CONFIG_H_

@@ -86,8 +86,4 @@ static const uint32_t FIRST_S_RESERVED_VALUE = MDER_S_POSITIVE_INFINITY;
 
 uint32_t float2IEEE11073(double data, uint8_t output[4]);
 
-<<<<<<< HEAD
 #endif /* _IEEE11073FLOAT_H_ */
-=======
-#endif /* _IEEE11073FLOAT_H_ */
->>>>>>> ac38ad6a2b2150a6f91c5d3c1925ab0dc762b61c

@@ -103,8 +103,4 @@ uint32_t float2IEEE11073(double data, uint8_t output[4])
 finally:
   if ( output ) memcpy(output, &result, 4);
   return result;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> ac38ad6a2b2150a6f91c5d3c1925ab0dc762b61c
