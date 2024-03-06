@@ -34,7 +34,7 @@ def generate_rpg_content(content_type, engine='gpt-3.5-turbo-0125', max_tokens=1
     messages=[{"role": "system", "content": "You are a helpful, creative assistant."},
             {"role":"user","content":prompt}]
     )
-
+asd
     return response.choices[0].message.content.strip()
 
 client = OpenAI(api_key=load_api_key('../../5560key'))
